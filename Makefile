@@ -1,9 +1,17 @@
-all: gorun
+DEST = ${HOME}
 
-gorun:
-	shellcheck gorun.sh
-	cp gorun.sh gorun
-	chmod a+x gorun
+all: gorn
+
+gorn:
+	@shellcheck gorn.sh
+	@cp gorn.sh gorn
+	@chmod a+x gorn
 
 install:
-	cp gorun ${HOME}/bin
+	@cp gorn $(DEST)/bin
+
+uninstall:
+	@rm -f $(DEST)/bin/gorn
+
+clean:
+	@rm -f gorn
